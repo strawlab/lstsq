@@ -4,7 +4,7 @@
 [![Documentation](https://docs.rs/lstsq/badge.svg)](https://docs.rs/lstsq/)
 [![Crate License](https://img.shields.io/crates/l/lstsq.svg)](https://crates.io/crates/lstsq)
 [![Dependency status](https://deps.rs/repo/github/strawlab/lstsq/status.svg)](https://deps.rs/repo/github/strawlab/lstsq)
-[![build](https://github.com/strawlab/lstsq/workflows/build/badge.svg?branch=master)](https://github.com/strawlab/lstsq/actions?query=branch%3Amaster)
+[![build](https://github.com/strawlab/lstsq/workflows/build/badge.svg?branch=main)](https://github.com/strawlab/lstsq/actions?query=branch%3Amain)
 
 Return the least-squares solution to a linear matrix equation
 

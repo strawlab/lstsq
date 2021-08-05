@@ -1,0 +1,36 @@
+name: build
+
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    branches: [ '**' ]
+
+jobs:
+  std:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: cargo build
+    - name: Run tests
+      run: cargo test
+
+  nostd:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install ARM target
+      run: rustup target add thumbv7em-none-eabihf
+    - name: Build
+      run: cargo build --no-default-features --target thumbv7em-none-eabihf

@@ -7,8 +7,8 @@ description = "Return the least-squares solution to a linear matrix equation"
 license = "MIT/Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/strawlab/lstsq"
-keywords = ["linear algebra"]
-categories = ["algorithms", "no-std", "science"]
+keywords = ["linear-algebra"]
+categories = ["algorithms", "mathematics", "no-std", "science"]
 
 [dependencies]
 nalgebra = {version="0.28", default-features=false}

@@ -95,7 +95,7 @@ where
 {
     // calculate solution with epsilon
     let svd = nalgebra::linalg::SVD::new(a.clone(), true, true);
-    let solution = svd.solve(&b, epsilon)?;
+    let solution = svd.solve(&b, epsilon.clone())?;
 
     // calculate residuals
     let model: OVector<R, M> = a * &solution;
@@ -103,7 +103,7 @@ where
     let residuals: R = l1.dot(&l1);
 
     // calculate rank with epsilon
-    let rank = svd.rank(epsilon);
+    let rank = svd.rank(epsilon.clone());
 
     Ok(Lstsq {
         solution,
@@ -119,7 +119,7 @@ mod tests {
     use na::{OMatrix, OVector, RealField, U2};
     use nalgebra as na;
 
-    fn check_residuals<R: RealField>(epsilon: R) {
+    fn check_residuals<R: RealField + Copy>(epsilon: R) {
         /*
         import numpy as np
         A = np.array([[1.0, 1.0], [2.0, 1.0], [3.0, 1.0], [4.0, 1.0]])

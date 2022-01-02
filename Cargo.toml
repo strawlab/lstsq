@@ -11,7 +11,7 @@ keywords = ["linear-algebra"]
 categories = ["algorithms", "mathematics", "no-std", "science"]
 
 [dependencies]
-nalgebra = {version="0.29", default-features=false}
+nalgebra = {version="0.30", default-features=false}
 
 [dev-dependencies]
 approx = {version="0.5", default-features=false}

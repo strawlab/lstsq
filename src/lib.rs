@@ -91,7 +91,9 @@ where
         + Allocator<R, DimDiff<DimMinimum<M, N>, U1>>
         + Allocator<R, DimMinimum<M, N>, N>
         + Allocator<R, M, DimMinimum<M, N>>
-        + Allocator<R, DimMinimum<M, N>>,
+        + Allocator<R, DimMinimum<M, N>>
+        + Allocator<(usize, usize), DimMinimum<M, N>>
+        + Allocator<(R, usize), DimMinimum<M, N>>,
 {
     // calculate solution with epsilon
     let svd = nalgebra::linalg::SVD::new(a.clone(), true, true);

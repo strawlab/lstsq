@@ -97,7 +97,7 @@ where
 {
     // calculate solution with epsilon
     let svd = nalgebra::linalg::SVD::new(a.clone(), true, true);
-    let solution = svd.solve(&b, epsilon.clone())?;
+    let solution = svd.solve(b, epsilon.clone())?;
 
     // calculate residuals
     let model: OVector<R, M> = a * &solution;
@@ -105,7 +105,7 @@ where
     let residuals: R = l1.dot(&l1);
 
     // calculate rank with epsilon
-    let rank = svd.rank(epsilon.clone());
+    let rank = svd.rank(epsilon);
 
     Ok(Lstsq {
         solution,

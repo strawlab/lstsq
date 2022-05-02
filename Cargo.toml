@@ -1,6 +1,6 @@
 [package]
 name = "lstsq"
-version = "0.3.0"
+version = "0.4.0"
 authors = ["Andrew Straw <strawman@astraw.com>"]
 edition = "2018"
 description = "Return the least-squares solution to a linear matrix equation"

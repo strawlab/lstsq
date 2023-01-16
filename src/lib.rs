@@ -21,14 +21,14 @@
 //! ```rust
 //! use nalgebra::{self as na, OMatrix, OVector, U2};
 //!
-//! let a = OMatrix::<f64, na::Dynamic, U2>::from_row_slice(&[
+//! let a = OMatrix::<f64, na::Dyn, U2>::from_row_slice(&[
 //!     1.0, 1.0,
 //!     2.0, 1.0,
 //!     3.0, 1.0,
 //!     4.0, 1.0,
 //! ]);
 //!
-//! let b = OVector::<f64, na::Dynamic>::from_row_slice(&[2.5, 4.4, 6.6, 8.5]);
+//! let b = OVector::<f64, na::Dyn>::from_row_slice(&[2.5, 4.4, 6.6, 8.5]);
 //!
 //! let epsilon = 1e-14;
 //! let results = lstsq::lstsq(&a, &b, epsilon).unwrap();
@@ -133,13 +133,13 @@ mod tests {
             .map(na::convert)
             .collect();
 
-        let a = OMatrix::<R, na::Dynamic, U2>::from_row_slice(&a);
+        let a = OMatrix::<R, na::Dyn, U2>::from_row_slice(&a);
 
         let b_data: Vec<R> = vec![2.5, 4.4, 6.6, 8.5]
             .into_iter()
             .map(na::convert)
             .collect();
-        let b = OVector::<R, na::Dynamic>::from_row_slice(&b_data);
+        let b = OVector::<R, na::Dyn>::from_row_slice(&b_data);
 
         let results = lstsq(&a, &b, R::default_epsilon()).unwrap();
         assert_eq!(results.solution.nrows(), 2);

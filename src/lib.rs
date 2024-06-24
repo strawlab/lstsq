@@ -48,7 +48,7 @@ use nalgebra::{DefaultAllocator, RealField};
 /// Results of [lstsq]
 pub struct Lstsq<R: RealField, N: Dim>
 where
-    DefaultAllocator: Allocator<R, N>,
+    DefaultAllocator: Allocator<N>,
 {
     /// Least-squares solution.
     ///
@@ -85,15 +85,13 @@ where
     M: DimMin<N>,
     N: Dim,
     DimMinimum<M, N>: DimSub<U1>, // for Bidiagonal.
-    DefaultAllocator: Allocator<R, M, N>
-        + Allocator<R, N>
-        + Allocator<R, M>
-        + Allocator<R, DimDiff<DimMinimum<M, N>, U1>>
-        + Allocator<R, DimMinimum<M, N>, N>
-        + Allocator<R, M, DimMinimum<M, N>>
-        + Allocator<R, DimMinimum<M, N>>
-        + Allocator<(usize, usize), DimMinimum<M, N>>
-        + Allocator<(R, usize), DimMinimum<M, N>>,
+    DefaultAllocator: Allocator<M, N>
+        + Allocator<N>
+        + Allocator<M>
+        + Allocator<DimDiff<DimMinimum<M, N>, U1>>
+        + Allocator<DimMinimum<M, N>, N>
+        + Allocator<M, DimMinimum<M, N>>
+        + Allocator<DimMinimum<M, N>>,
 {
     // calculate solution with epsilon
     let svd = nalgebra::linalg::SVD::new(a.clone(), true, true);

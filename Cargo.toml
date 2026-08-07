@@ -2,16 +2,17 @@
 name = "lstsq"
 version = "0.7.0"
 authors = ["Andrew Straw <strawman@astraw.com>"]
-edition = "2018"
+edition = "2021"
 description = "Return the least-squares solution to a linear matrix equation"
-license = "MIT/Apache-2.0"
+license = "MIT OR Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/strawlab/lstsq"
 keywords = ["linear-algebra"]
 categories = ["algorithms", "mathematics", "no-std", "science"]
+rust-version = "1.89"
 
 [dependencies]
-nalgebra = { version = "0.34", default-features = false }
+nalgebra = { version = "0.35", default-features = false }
 
 [dev-dependencies]
 approx = { version = "0.5", default-features = false }
